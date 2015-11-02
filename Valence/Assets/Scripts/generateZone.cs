@@ -48,6 +48,7 @@ public class generateZone : MonoBehaviour {
 			Vector3 landmarkPosition = new Vector3 (Random.Range (zoneX, zoneX + zoneWidth), 0.0f, Random.Range (zoneZ, zoneZ + (zoneHeight)));
 			GameObject tempLandmark = (GameObject)Instantiate (Resources.Load ("landmark_0"), landmarkPosition, Quaternion.identity);
 			tempLandmark.transform.eulerAngles = new Vector3 (0, Random.Range (0, 360), 0);
+			tempLandmark.transform.SetParent( zoneBounds.transform );
 		}
 
 		if (numProps > 0) {
@@ -57,7 +58,7 @@ public class generateZone : MonoBehaviour {
 				GameObject tempObject 				= (GameObject ) Instantiate(Resources.Load("prop_"+randVal), propPosition, Quaternion.identity);
 				tempObject.transform.eulerAngles 	= new Vector3 (Random.Range (0,45), Random.Range(0, 360), Random.Range (0,45));
 				tempObject.GetComponent<PropScript>().setZoneCoords( zoneWidth, zoneHeight, zoneX, zoneZ );
-
+				tempObject.transform.SetParent( zoneBounds.transform );
 			}
 		}
 	}

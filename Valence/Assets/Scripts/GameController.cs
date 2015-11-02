@@ -3,19 +3,19 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 	static int mapSize = 50;
-	public GameObject[,] tiles = new GameObject[mapSize,mapSize];
+	public int[,] tiles = new int[mapSize,mapSize];
 	public Vector3 rootMousePos;
 	public bool rootSet = false;
+
+	public float food, power, water;
+	
 	// Use this for initialization
 	void Start () {
-		/**
-		for (int i = -mapSize/2; i < mapSize/2; i++) {
-			for (int j = -mapSize/2; j < mapSize/2; j++) {
-				GameObject tempObject = (GameObject ) Instantiate(Resources.Load("Tile"), new Vector3(i, 0, j), Quaternion.identity );
-				tiles[i+mapSize/2,j+mapSize/2] = tempObject;
+		for( int x = 0; x < mapSize; x++){
+			for( int y = 0; y < mapSize; y++){
+				
 			}
 		}
-		**/
 	}
 	
 	// Update is called once per frame

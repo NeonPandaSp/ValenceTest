@@ -20,6 +20,7 @@ public class PropScript : MonoBehaviour {
 			GameObject tempObject = (GameObject ) Instantiate(Resources.Load("prop_"+randVal), propPosition, Quaternion.identity);
 			tempObject.transform.eulerAngles = new Vector3 (Random.Range(0, 25), Random.Range(0, 360), 0);
 			tempObject.GetComponent<PropScript>().setZoneCoords( zoneWidth, zoneHeight, zoneX, zoneZ );
+			tempObject.transform.SetParent( this.gameObject.transform.parent) ;
 			Destroy( this.gameObject );
 		}
 	}
