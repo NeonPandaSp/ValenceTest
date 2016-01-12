@@ -1,10 +1,18 @@
 fileFormatVersion: 2
 guid: 6446bbe4ee194c04c87c52c56560c3af
-timeCreated: 1444097247
+timeCreated: 1452199930
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _inputController: {instanceID: 0}
+  - GUIObject: {fileID: 177440, guid: 11ef366513e69354c8a0bc8b58c7bb20, type: 2}
+  - scrapText: {instanceID: 0}
+  - popText: {instanceID: 0}
+  - moraleText: {instanceID: 0}
+  - foodText: {instanceID: 0}
+  - waterText: {instanceID: 0}
+  - powerText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

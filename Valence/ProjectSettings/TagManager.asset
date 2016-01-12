@@ -9,6 +9,12 @@ TagManager:
   - Foodsource
   - buildMesh
   - buildTrans
+  - FarmWaypoint
+  - Farm
+  - enemyTouchBox
+  - Hospital
+  - HospitalWaypoint
+  - FolkUnit
   layers:
   - Default
   - TransparentFX

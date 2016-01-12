@@ -3,6 +3,7 @@ using System.Collections;
 
 public class InputController : MonoBehaviour {
 
+	public GameController _gameController;
 	TileMap _tileMap;
 	generateZone _generateZone;
 
@@ -20,7 +21,7 @@ public class InputController : MonoBehaviour {
 
 	bool generate;
 
-	bool zoning;
+	public bool zoning;
 
 	string hoverState;
 
@@ -158,45 +159,57 @@ public class InputController : MonoBehaviour {
 			if( generate && zoning ){
 				_generateZone.setZoneSize( min , max );
 				_generateZone.Generate( _generateZone.getPropNum() );
-				/**
+
 				foreach (GameObject obstcale in GameObject.FindGameObjectsWithTag("prop")) {
 					AstarPath.active.UpdateGraphs(obstcale.gameObject.GetComponent<Collider>().bounds);
-				} **/
+				} 
 			} else if ( !zoning ){
 				if( hoverState == "food" ){
-					GameObject tempObject = ( GameObject ) Instantiate ( foodBuild, new Vector3( currentTile.x, 0, currentTile.y ), Quaternion.identity );
-					tempObject.GetComponent<BuildingScript>().initProduction = true;
-					Debug.Log ( tempObject.GetComponent<BuildingScript>().initProduction );
-					foreach(Transform child in transform){
-						if(child.gameObject.tag == "buildTrans"){
-							child.gameObject.SetActive(false);
-						}
-						if(child.gameObject.tag == "buildMesh"){
-							child.gameObject.SetActive(true);
+					if( _gameController.scrap >= 25 ){
+						_gameController.scrap -= 25;
+						GameObject tempObject = ( GameObject ) Instantiate ( foodBuild, new Vector3( currentTile.x, 0, currentTile.y ), Quaternion.identity );
+						tempObject.GetComponent<BuildingScript>().initBuildingType();
+						tempObject.GetComponent<BuildingScript>().beginProduction();
+						//Debug.Log ( tempObject.GetComponent<BuildingScript>().initProduction );
+						foreach(Transform child in tempObject.transform){
+							if(child.gameObject.tag == "buildTrans"){
+								child.gameObject.SetActive(false);
+							}
+							if(child.gameObject.tag == "buildMesh"){
+								child.gameObject.SetActive(true);
+							}
 						}
 					}
 				}
 				if( hoverState == "water" ){
-					GameObject tempObject = ( GameObject ) Instantiate ( waterBuild, new Vector3( currentTile.x, 0, currentTile.y ), Quaternion.identity );
-					tempObject.GetComponent<BuildingScript>().initProduction = true;
-					foreach(Transform child in transform){
-						if(child.gameObject.tag == "buildTrans"){
-							child.gameObject.SetActive(false);
-						}
-						if(child.gameObject.tag == "buildMesh"){
-							child.gameObject.SetActive(true);
+					if( _gameController.scrap >= 25 ){
+						_gameController.scrap -= 25;
+						GameObject tempObject = ( GameObject ) Instantiate ( waterBuild, new Vector3( currentTile.x, 0, currentTile.y ), Quaternion.identity );
+						tempObject.GetComponent<BuildingScript>().initBuildingType();
+						tempObject.GetComponent<BuildingScript>().beginProduction();
+						foreach(Transform child in tempObject.transform){
+							if(child.gameObject.tag == "buildTrans"){
+								child.gameObject.SetActive(false);
+							}
+							if(child.gameObject.tag == "buildMesh"){
+								child.gameObject.SetActive(true);
+							}
 						}
 					}
 				}
 				if( hoverState == "power" ){
-					GameObject tempObject = ( GameObject ) Instantiate ( powerBuild, new Vector3( currentTile.x, 0, currentTile.y ), Quaternion.identity );
-					tempObject.GetComponent<BuildingScript>().initProduction = true;
-					foreach(Transform child in transform){
-						if(child.gameObject.tag == "buildTrans"){
-							child.gameObject.SetActive(false);
-						}
-						if(child.gameObject.tag == "buildMesh"){
-							child.gameObject.SetActive(true);
+					if( _gameController.scrap >= 25 ){
+						_gameController.scrap -= 25;
+						GameObject tempObject = ( GameObject ) Instantiate ( powerBuild, new Vector3( currentTile.x, 0, currentTile.y ), Quaternion.identity );
+						tempObject.GetComponent<BuildingScript>().initBuildingType();
+						tempObject.GetComponent<BuildingScript>().beginProduction();
+						foreach(Transform child in tempObject.transform){
+							if(child.gameObject.tag == "buildTrans"){
+								child.gameObject.SetActive(false);
+							}
+							if(child.gameObject.tag == "buildMesh"){
+								child.gameObject.SetActive(true);
+							}
 						}
 					}
 				}

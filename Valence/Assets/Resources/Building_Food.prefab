@@ -4700,10 +4700,11 @@ MonoBehaviour:
   _myGameController: {fileID: 0}
   bType:
     typeName: 
+    cost: 0
     pRate: 0
     pTime: 0
     area: 0
-  myType: farm
+  myType: food
   myArea: 48
   assignedAgents: []
   initProduction: 0

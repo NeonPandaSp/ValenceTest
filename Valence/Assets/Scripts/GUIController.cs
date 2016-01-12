@@ -1,36 +1,73 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
+
 public class GUIController : MonoBehaviour {
 	public InputController _inputController;
 	public GameObject GUIObject;
 
-	public Text scrapText, foodText, powerText;
-	public Button shelterButton, foodButton, powerButton;
+	//Time variables
+	public float updateInterval = 0.5F;
+	private double lastInterval;
+	private int frames = 0;
+	private float fps;
+
+	int hour;
+	int minute;
+	int second;
+
+	public Text timeText, scrapText, popText, moraleText, foodText, waterText, powerText;
+	//public Button shelterButton, foodButton, powerButton;
 
 	Vector2 lastMousePos;
 
-	int scrapCount, foodCount, powerCount;
+	public int scrap, population;
+	public float morale, food, water, power;
+
 	// Use this for initialization
 	void Start () {
-		scrapCount = 0;
-		foodCount = 0;
-		powerCount = 0;
-		scrapText.text = "Scrap: " + scrapCount;
-		foodText.text = "Food: " + foodCount;
-		powerText.text = "Power: " + powerCount;
+		scrap = 0;
+		population = 0;
+		morale = 100.0f;
+		food = 0;
+		water = 0;
+		power = 0;
+
+		setTimeText ();
+		setScrapText ();
+		setPopText ();
+		setMoraleText ();
+		setFoodText ();
+		setWaterText ();
+		setPowerText ();
+
 		lastMousePos = Input.mousePosition;
+
+		//Time
+		lastInterval = Time.realtimeSinceStartup;
+		frames = 0;
+		hour = 0;
+		minute = 0;
+		second = 0;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		scrapCount++;
-		foodCount++;
-		powerCount++;
-		scrapText.text = "Scrap: " + scrapCount;
-		foodText.text = "Food: " + foodCount;
-		powerText.text = "Power: " + powerCount;
+		scrap++;
+		population++;
+		morale--;
+		food--;
+		water++;
+		power++;
 
+		setTimeText ();
+		setScrapText ();
+		setPopText ();
+		setMoraleText ();
+		setFoodText ();
+		setWaterText ();
+		setPowerText ();
 
 		int x, y;
 		if (Input.mousePosition.x > lastMousePos.x) {
@@ -48,28 +85,54 @@ public class GUIController : MonoBehaviour {
 		} else {
 			y = 0;
 		}
-		/*
-		Vector2 deltaPos = new Vector2 (x,y);
 
-		GUIObject.transform.position = new Vector2( GUIObject.transform.position.x + deltaPos.x, GUIObject.transform.position.y + deltaPos.y);
-		Debug.Log (GUIObject.transform.position.x + " " + GUIObject.transform.position.y);
-
-		if (GUIObject.transform.position.x > -110) {
-			GUIObject.transform.position = new Vector2(-110,GUIObject.transform.position.y);
-		} else if ( GUIObject.transform.position.x < -118 ){
-			GUIObject.transform.position = new Vector2(-118,GUIObject.transform.position.y);;
-		}
-
-		if (GUIObject.transform.position.y > -6) {
-			GUIObject.transform.position = new Vector2(GUIObject.transform.position.x, -6);;
-		} else if ( GUIObject.transform.position.y < -16 ){
-			GUIObject.transform.position = new Vector2(GUIObject.transform.position.x, -16);;
-		}
-		*/
 		lastMousePos = Input.mousePosition;
 
+		//Time
+		hour = Mathf.FloorToInt( Time.realtimeSinceStartup / ( 60 * 60 ) );
+		minute = Mathf.FloorToInt( Time.realtimeSinceStartup / 60 ) - ( hour * 60 );
+		second = (int) Time.realtimeSinceStartup - (minute * 60);
+
+		//Frames
+		++frames;
+		float timeNow = Time.realtimeSinceStartup;
+		if (timeNow > lastInterval + updateInterval) {
+			fps = (float) (frames / (timeNow - lastInterval));
+			frames = 0;
+			lastInterval = timeNow;
+		}
 	}
 
+	//Setting Global Texts
+	void setTimeText (){
+		timeText.text = hour.ToString () + ":" + minute.ToString () + ":" + second.ToString ();
+	}
+
+	void setScrapText (){
+		scrapText.text = "Scrap: " + scrap.ToString ();
+	}
+
+	void setPopText (){
+		popText.text = "Population: " + population.ToString ();
+	}
+
+	void setMoraleText (){
+		moraleText.text = "Morale: " + morale.ToString ();
+	}
+
+	void setFoodText (){
+		foodText.text = "Food: " + food.ToString ();
+	}
+
+	void setWaterText (){
+		waterText.text = "Water: " + water.ToString ();
+	}
+
+	void setPowerText (){
+		powerText.text = "Power: " + power.ToString ();
+	}
+
+	/*
 	public void shelterPressed(){
 		_inputController.selectedMaterial ("blue");
 		Debug.Log ("Green!");
@@ -79,5 +142,17 @@ public class GUIController : MonoBehaviour {
 	}
 	public void powerPressed(){
 		_inputController.selectedMaterial ("yellow");
+	}
+	*/
+
+	void OnGUI() {
+	if (GUI.Button (new Rect (845, 10, 100, 100), "CLICK ME!"))
+		print (morale);
+
+	GUI.BeginGroup (new Rect(Screen.width -100, 0, 200, 200));
+		GUILayout.Label ("FPS: " + fps.ToString ("f2"));
+	GUI.EndGroup();
+
+	//GUILayout.Label (hour + ":" + minute + ":" + second);
 	}
 }

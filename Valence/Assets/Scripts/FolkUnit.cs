@@ -8,28 +8,48 @@ public class FolkUnit : MonoBehaviour {
 
 	public bool canMove;
 
+	public bool movePressed;
+	public bool attackPressed;
+	public bool grabPressed;
+	public bool waitPressed;
+
+	public bool turnComplete;
+
+	public int actionPoints;
+
 	public int health;
 
 	public int movement;
 	public int attackRange;
 
-	public bool moving;
+	public bool moving, hasAttacked;
 	public Vector2 target;
 
 	public float moveSpeed = 1;
 
 	public List<ExploreMode_GameController.Node> currentPath = null;
 
-	public LineRenderer myLine;
+	//public LineRenderer myLine;
+
 
 	// Use this for initialization
 	void Start () {
 		currentPosition = new Vector2( transform.position.x, transform.position.z );
 		moving = false;
+		movePressed = false;
+		attackPressed = false;
+		grabPressed = false;
+		waitPressed = false;
+		turnComplete = false;
+		hasAttacked = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (actionPoints <= 0) {
+			turnComplete = true;
+		}
 		if(currentPath != null) {
 			
 			int currNode = 0;
@@ -39,29 +59,16 @@ public class FolkUnit : MonoBehaviour {
 				Vector3 start = new Vector3( currentPath[currNode].x +0.5f, 1, currentPath[currNode].y+0.5f );
 				Vector3 end   = new Vector3( currentPath[currNode+1].x+0.5f,1, currentPath[currNode+1].y+0.5f );
 
-				myLine.SetPosition( currNode, start );
-				if( currNode == currentPath.Count - 1 ){
-					myLine.SetPosition ( currNode, end );
-				}
-				Debug.DrawLine(start, end, Color.red);
-
 				currNode++;
 			}
 			
 		}
 		MoveNextTile ();
-		/**
-		currentPosition = new Vector2 (transform.position.x, transform.position.z);
-		if (moving) {
-			MoveObject( transform.position, target );
-		}**/
 	}
 
 	public void MoveNextTile() {
 		float remainingMovement = moveSpeed;
 
-		//MoveObject (transform.position, currentPath [currentPath.Count - 1].nodePos);
-		
 		while(remainingMovement > 0) {
 			if(currentPath==null)
 				return;
@@ -84,7 +91,6 @@ public class FolkUnit : MonoBehaviour {
 				// So let's just clear our pathfinding info.
 				currentPath = null;
 				canMove = false;
-				_GameController.GenerateMovementRange((int)transform.position.x,(int)transform.position.z);
 			}
 		}
 		
@@ -93,16 +99,6 @@ public class FolkUnit : MonoBehaviour {
 
 	public void Move( Vector2 targetPosition ){
 		_GameController.GeneratePathTo ((int)targetPosition.x,(int) targetPosition.y);
-		/**
-		lastPosition = transform.position;
-		//moveStart (targetPosition);
-		moving = true;
-		target = targetPosition;
-		//transform.position = Vector3.Lerp (lastPosition, new Vector3 (targetPosition.x, 0, targetPosition.y), 3.0f);
-		//transform.position = new Vector3 (targetPosition.x, 0, targetPosition.y);
-		currentPosition = targetPosition;
-		canMove = false;
-		**/
 	}
 
 	public bool withinMoveRange( Vector2 targetPosition ){

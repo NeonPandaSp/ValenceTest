@@ -66,9 +66,15 @@ public class InputController_Explore : MonoBehaviour {
 
 		if( Input.GetMouseButton(0) ){
 
-			if( _GameController.selectedUnit.canMove ){
+			if( _GameController.selectedUnit.canMove && _GameController.GameState == 1 && _GameController.selectedUnit.movePressed ){
 				if( _GameController.selectedUnit.withinMoveRange( currentTile ) ){
 					_GameController.selectedUnit.Move(currentTile);
+					foreach( GameObject n in _GameController.moveTiles){
+						Destroy (n);
+					}
+					_GameController.moveTiles.Clear();
+					_GameController.selectedUnit.actionPoints--;
+					_GameController.selectedUnit.movePressed = false;
 				} else {
 					// not within range
 				}
@@ -76,25 +82,59 @@ public class InputController_Explore : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (KeyCode.Return)) {
-			int i = _GameController.selectedIndex;
-
-			i += 1;
-			if( i <= 3 ){
-
-				Debug.Log ( i );
-				_GameController.selectedUnit = _GameController.folk[i];
-				_GameController.GenerateMovementRange((int)_GameController.selectedUnit.currentPosition.x, (int)_GameController.selectedUnit.currentPosition.y);
-				_GameController.MoveIcon();
-				_GameController.selectedIndex = i;
-			} else {
-				i = 0;
-				_GameController.selectedUnit = _GameController.folk[i];
-				_GameController.GenerateMovementRange((int)_GameController.selectedUnit.currentPosition.x,(int) _GameController.selectedUnit.currentPosition.y);
-				_GameController.MoveIcon();
-				_GameController.selectedIndex = i;
-			}
+			_GameController.selectedNextUnit ();
 		}
 	}
 
+	public void MoveSelectedUnit( ){
+		Debug.Log ("Move Called");
+		_GameController.disableAttackBox();
+		_GameController.selectedUnit.movePressed = true;
+		_GameController.GenerateMovementRange((int)_GameController.selectedUnit.currentPosition.x, (int)_GameController.selectedUnit.currentPosition.y);
+	}
+
+	public void AttackWithSelectedUnit(){
+		_GameController.enableAttackBox (_GameController.selectedUnit);
+		_GameController.selectedUnit.attackPressed = true;
+	}
+
+	public void WaitSelectedUnit(){
+		_GameController.disableAttackBox();
+		_GameController.selectedUnit.waitPressed = true;
+		_GameController.selectedUnit.canMove = false;
+		_GameController.selectedUnit.actionPoints = 0;
+		selectedNextUnit ();
+	}
+
+	public void selectedNextUnit(){
+		_GameController.DestroyMovementRange ();
+		int i = _GameController.selectedIndex;
+		if( _GameController.GameState == 1 ){
+			i += 1;
+			if( i > _GameController.GetNumberOfPlayerUnits()-1 ){
+				i = 0;
+			} 
+			int dCount = 0;
+			while( !_GameController.folk[i].isActiveAndEnabled && _GameController.folk[i].actionPoints > 0 ){
+				i++;
+				if( i > _GameController.GetNumberOfPlayerUnits()-1 ){
+					i = 0;
+				} 
+				dCount++;
+				if( dCount == _GameController.GetNumberOfPlayerUnits() ){
+					//GameOver
+					break;
+				}
+			}
+			_GameController.selectedUnit = _GameController.folk[i];
+			if( _GameController.selectedUnit.canMove ){
+				_GameController.selectedUnit.movePressed = false;
+			}
+			_GameController.selectedIndex = i;
+			_GameController.MoveIcon();
+			_GameController.cameraObject.MoveCameraTo( _GameController.cameraObject.transform.position, _GameController.selectedUnit.transform.position );
+
+		}
+	}
 
 }

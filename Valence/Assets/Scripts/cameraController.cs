@@ -32,6 +32,8 @@ public class cameraController : MonoBehaviour {
 	
 	public bool mouseEdgeControl;
 	public bool perspCam;
+
+	public CameraTargetController _camObject;
 	
 	// Use this for initialization
 	void Start () {
@@ -86,6 +88,8 @@ public class cameraController : MonoBehaviour {
 		    Input.mousePosition.x < scrollArea || Input.mousePosition.x >= Screen.width - scrollArea || 
 		    Input.mousePosition.y < scrollArea || Input.mousePosition.y > Screen.height - scrollArea
 		    ) {
+
+			_camObject.moving = false;
 			if( scrollSpeed < 15 ){
 				
 				if( currentTime == -1 ){

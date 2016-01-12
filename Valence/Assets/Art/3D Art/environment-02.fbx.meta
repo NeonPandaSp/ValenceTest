@@ -1,0 +1,488 @@
+fileFormatVersion: 2
+guid: c1115443cfd277949a714e7fecdd70e6
+timeCreated: 1449104542
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: glass
+    100004: ground
+    100006: group1
+    100008: group2
+    100010: pCube10
+    100012: pCube11
+    100014: pCube12
+    100016: pCube13
+    100018: pCube14
+    100020: pCube15
+    100022: pCube16
+    100024: pCube17
+    100026: pCube18
+    100028: pCube19
+    100030: pCube2
+    100032: pCube2 1
+    100034: pCube20
+    100036: pCube21
+    100038: pCube22
+    100040: pCube23
+    100042: pCube24
+    100044: pCube25
+    100046: pCube26
+    100048: pCube27
+    100050: pCube28
+    100052: pCube29
+    100054: pCube3
+    100056: pCube3 1
+    100058: pCube30
+    100060: pCube31
+    100062: pCube32
+    100064: pCube33
+    100066: pCube34
+    100068: pCube35
+    100070: pCube36
+    100072: pCube37
+    100074: pCube38
+    100076: pCube39
+    100078: pCube4
+    100080: pCube4 1
+    100082: pCube40
+    100084: pCube41
+    100086: pCube42
+    100088: pCube43
+    100090: pCube44
+    100092: pCube45
+    100094: pCube46
+    100096: pCube47
+    100098: pCube5
+    100100: pCube5 1
+    100102: pCube6
+    100104: pCube6 1
+    100106: pCube7
+    100108: pCube7 1
+    100110: pCube8
+    100112: pCube9
+    100114: pCylinder1
+    100116: pCylinder1 1
+    100118: pCylinder10
+    100120: pCylinder11
+    100122: pCylinder12
+    100124: pCylinder13
+    100126: pCylinder14
+    100128: pCylinder2
+    100130: pCylinder3
+    100132: pCylinder4
+    100134: pCylinder5
+    100136: pCylinder6
+    100138: pCylinder7
+    100140: pCylinder8
+    100142: pCylinder9
+    100144: pTorus1
+    100146: pTorus1 1
+    100148: pTorus2
+    100150: pTorus2 1
+    100152: school
+    100154: seesaw
+    100156: seesaw1
+    100158: snowbank
+    100160: snowbank 1
+    100162: snowbank1
+    100164: snowbank2
+    100166: snowbank3
+    100168: snowbank4
+    100170: snowbank5
+    100172: snowbank6
+    100174: swing
+    100176: treeBareOld1Main
+    100178: wall
+    100180: window
+    400000: //RootNode
+    400002: glass
+    400004: ground
+    400006: group1
+    400008: group2
+    400010: pCube10
+    400012: pCube11
+    400014: pCube12
+    400016: pCube13
+    400018: pCube14
+    400020: pCube15
+    400022: pCube16
+    400024: pCube17
+    400026: pCube18
+    400028: pCube19
+    400030: pCube2
+    400032: pCube2 1
+    400034: pCube20
+    400036: pCube21
+    400038: pCube22
+    400040: pCube23
+    400042: pCube24
+    400044: pCube25
+    400046: pCube26
+    400048: pCube27
+    400050: pCube28
+    400052: pCube29
+    400054: pCube3
+    400056: pCube3 1
+    400058: pCube30
+    400060: pCube31
+    400062: pCube32
+    400064: pCube33
+    400066: pCube34
+    400068: pCube35
+    400070: pCube36
+    400072: pCube37
+    400074: pCube38
+    400076: pCube39
+    400078: pCube4
+    400080: pCube4 1
+    400082: pCube40
+    400084: pCube41
+    400086: pCube42
+    400088: pCube43
+    400090: pCube44
+    400092: pCube45
+    400094: pCube46
+    400096: pCube47
+    400098: pCube5
+    400100: pCube5 1
+    400102: pCube6
+    400104: pCube6 1
+    400106: pCube7
+    400108: pCube7 1
+    400110: pCube8
+    400112: pCube9
+    400114: pCylinder1
+    400116: pCylinder1 1
+    400118: pCylinder10
+    400120: pCylinder11
+    400122: pCylinder12
+    400124: pCylinder13
+    400126: pCylinder14
+    400128: pCylinder2
+    400130: pCylinder3
+    400132: pCylinder4
+    400134: pCylinder5
+    400136: pCylinder6
+    400138: pCylinder7
+    400140: pCylinder8
+    400142: pCylinder9
+    400144: pTorus1
+    400146: pTorus1 1
+    400148: pTorus2
+    400150: pTorus2 1
+    400152: school
+    400154: seesaw
+    400156: seesaw1
+    400158: snowbank
+    400160: snowbank 1
+    400162: snowbank1
+    400164: snowbank2
+    400166: snowbank3
+    400168: snowbank4
+    400170: snowbank5
+    400172: snowbank6
+    400174: swing
+    400176: treeBareOld1Main
+    400178: wall
+    400180: window
+    2300000: ground
+    2300002: pCube10
+    2300004: pCube11
+    2300006: pCube12
+    2300008: pCube13
+    2300010: pCube14
+    2300012: pCube15
+    2300014: pCube16
+    2300016: pCube17
+    2300018: pCube18
+    2300020: pCube19
+    2300022: pCube2
+    2300024: pCube2 1
+    2300026: pCube20
+    2300028: pCube21
+    2300030: pCube22
+    2300032: pCube23
+    2300034: pCube24
+    2300036: pCube25
+    2300038: pCube26
+    2300040: pCube27
+    2300042: pCube28
+    2300044: pCube29
+    2300046: pCube3
+    2300048: pCube3 1
+    2300050: pCube30
+    2300052: pCube31
+    2300054: pCube32
+    2300056: pCube33
+    2300058: pCube34
+    2300060: pCube35
+    2300062: pCube36
+    2300064: pCube37
+    2300066: pCube38
+    2300068: pCube39
+    2300070: pCube4
+    2300072: pCube4 1
+    2300074: pCube40
+    2300076: pCube41
+    2300078: pCube42
+    2300080: pCube43
+    2300082: pCube44
+    2300084: pCube45
+    2300086: pCube46
+    2300088: pCube47
+    2300090: pCube5
+    2300092: pCube5 1
+    2300094: pCube6
+    2300096: pCube6 1
+    2300098: pCube7
+    2300100: pCube7 1
+    2300102: pCube8
+    2300104: pCube9
+    2300106: pCylinder1
+    2300108: pCylinder1 1
+    2300110: pCylinder10
+    2300112: pCylinder11
+    2300114: pCylinder12
+    2300116: pCylinder13
+    2300118: pCylinder14
+    2300120: pCylinder2
+    2300122: pCylinder3
+    2300124: pCylinder4
+    2300126: pCylinder5
+    2300128: pCylinder6
+    2300130: pCylinder7
+    2300132: pCylinder8
+    2300134: pCylinder9
+    2300136: pTorus1
+    2300138: pTorus1 1
+    2300140: pTorus2
+    2300142: pTorus2 1
+    2300144: snowbank 1
+    2300146: snowbank1
+    2300148: snowbank2
+    2300150: snowbank3
+    2300152: snowbank4
+    2300154: snowbank5
+    2300156: snowbank6
+    2300158: treeBareOld1Main
+    3300000: ground
+    3300002: pCube10
+    3300004: pCube11
+    3300006: pCube12
+    3300008: pCube13
+    3300010: pCube14
+    3300012: pCube15
+    3300014: pCube16
+    3300016: pCube17
+    3300018: pCube18
+    3300020: pCube19
+    3300022: pCube2
+    3300024: pCube2 1
+    3300026: pCube20
+    3300028: pCube21
+    3300030: pCube22
+    3300032: pCube23
+    3300034: pCube24
+    3300036: pCube25
+    3300038: pCube26
+    3300040: pCube27
+    3300042: pCube28
+    3300044: pCube29
+    3300046: pCube3
+    3300048: pCube3 1
+    3300050: pCube30
+    3300052: pCube31
+    3300054: pCube32
+    3300056: pCube33
+    3300058: pCube34
+    3300060: pCube35
+    3300062: pCube36
+    3300064: pCube37
+    3300066: pCube38
+    3300068: pCube39
+    3300070: pCube4
+    3300072: pCube4 1
+    3300074: pCube40
+    3300076: pCube41
+    3300078: pCube42
+    3300080: pCube43
+    3300082: pCube44
+    3300084: pCube45
+    3300086: pCube46
+    3300088: pCube47
+    3300090: pCube5
+    3300092: pCube5 1
+    3300094: pCube6
+    3300096: pCube6 1
+    3300098: pCube7
+    3300100: pCube7 1
+    3300102: pCube8
+    3300104: pCube9
+    3300106: pCylinder1
+    3300108: pCylinder1 1
+    3300110: pCylinder10
+    3300112: pCylinder11
+    3300114: pCylinder12
+    3300116: pCylinder13
+    3300118: pCylinder14
+    3300120: pCylinder2
+    3300122: pCylinder3
+    3300124: pCylinder4
+    3300126: pCylinder5
+    3300128: pCylinder6
+    3300130: pCylinder7
+    3300132: pCylinder8
+    3300134: pCylinder9
+    3300136: pTorus1
+    3300138: pTorus1 1
+    3300140: pTorus2
+    3300142: pTorus2 1
+    3300144: snowbank 1
+    3300146: snowbank1
+    3300148: snowbank2
+    3300150: snowbank3
+    3300152: snowbank4
+    3300154: snowbank5
+    3300156: snowbank6
+    3300158: treeBareOld1Main
+    4300000: ground
+    4300002: pCube5
+    4300004: pCube4
+    4300006: pCube3
+    4300008: pCube2
+    4300010: pTorus1
+    4300012: pCube7
+    4300014: pCube6
+    4300016: pCylinder1
+    4300018: pTorus2
+    4300020: pCube5
+    4300022: pCube4
+    4300024: pCube3
+    4300026: pCube2
+    4300028: pCylinder1
+    4300030: pCube6
+    4300032: pTorus1
+    4300034: pCube7
+    4300036: pTorus2
+    4300038: pCylinder12
+    4300040: pCylinder13
+    4300042: pCylinder14
+    4300044: pCylinder11
+    4300046: pCylinder10
+    4300048: pCylinder9
+    4300050: pCylinder8
+    4300052: pCylinder7
+    4300054: pCube9
+    4300056: pCylinder6
+    4300058: pCube8
+    4300060: pCylinder2
+    4300062: pCylinder3
+    4300064: pCylinder4
+    4300066: pCylinder5
+    4300068: treeBareOld1Main
+    4300070: snowbank6
+    4300072: snowbank5
+    4300074: snowbank4
+    4300076: snowbank3
+    4300078: snowbank2
+    4300080: snowbank
+    4300082: snowbank1
+    4300084: pCube10
+    4300086: pCube11
+    4300088: pCube12
+    4300090: pCube20
+    4300092: pCube19
+    4300094: pCube18
+    4300096: pCube17
+    4300098: pCube16
+    4300100: pCube15
+    4300102: pCube14
+    4300104: pCube13
+    4300106: pCube21
+    4300108: pCube22
+    4300110: pCube23
+    4300112: pCube24
+    4300114: pCube25
+    4300116: pCube26
+    4300118: pCube27
+    4300120: pCube28
+    4300122: pCube29
+    4300124: pCube30
+    4300126: pCube31
+    4300128: pCube32
+    4300130: pCube44
+    4300132: pCube43
+    4300134: pCube42
+    4300136: pCube41
+    4300138: pCube40
+    4300140: pCube39
+    4300142: pCube38
+    4300144: pCube37
+    4300146: pCube36
+    4300148: pCube35
+    4300150: pCube34
+    4300152: pCube33
+    4300154: pCube45
+    4300156: pCube46
+    4300158: pCube47
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
